@@ -1,0 +1,23 @@
+{
+  "name": "config-service",
+  "version": "0.0.1",
+  "description": "Awesome project developed with TypeORM.",
+  "devDependencies": {
+    "@types/node": "^8.0.29",
+    "nodemon": "^1.18.9",
+    "ts-node": "3.3.0",
+    "typescript": "2.5.2"
+  },
+  "dependencies": {
+    "class-validator": "^0.9.1",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "pg": "^7.8.0",
+    "reflect-metadata": "^0.1.10",
+    "typeorm": "0.2.11"
+  },
+  "scripts": {
+    "start": "nodemon"
+  }
+}

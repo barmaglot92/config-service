@@ -5,13 +5,14 @@ import {
   JoinColumn,
   OneToOne,
   Column,
-  ManyToMany
+  ManyToMany,
+  BaseEntity
 } from "typeorm";
 import { Project } from "./Project";
 import { Configuration } from "./Configuration";
 
 @Entity()
-export class Environment {
+export class Environment extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 

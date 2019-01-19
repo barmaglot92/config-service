@@ -6,13 +6,14 @@ import {
   JoinTable,
   ManyToMany,
   JoinColumn,
-  ManyToOne
+  ManyToOne,
+  BaseEntity
 } from "typeorm";
 import { Environment } from "./Environment";
 import { Group } from "./Group";
 
 @Entity()
-export class Project {
+export class Project extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 

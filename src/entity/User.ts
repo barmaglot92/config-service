@@ -5,22 +5,18 @@ import {
   OneToMany,
   BaseEntity
 } from "typeorm";
-import { Project } from "./Project";
 import { MaxLength } from "class-validator";
-import { User } from "./User";
+import { Group } from "./Group";
 
 @Entity()
-export class Group extends BaseEntity {
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @OneToMany(type => User, user => user.group)
-  users: User[];
+  @OneToMany(type => Group, group => group.users)
+  group: Group;
 
   @Column({ unique: true })
   @MaxLength(100)
   name: string;
-
-  @OneToMany(type => Project, project => project.group)
-  projects: Project[];
 }

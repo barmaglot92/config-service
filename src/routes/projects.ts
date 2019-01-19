@@ -15,6 +15,7 @@ router.post("/save", async (ctx, next) => {
     ...ctx.request.body,
     group
   });
+
   ctx.body = project.id;
 });
 

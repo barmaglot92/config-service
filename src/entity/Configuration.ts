@@ -1,15 +1,7 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  ManyToMany
-} from "typeorm";
-import { Environment } from "./Environment";
-import { Project } from "./Project";
+import { Column, Entity, PrimaryGeneratedColumn, BaseEntity } from "typeorm";
 
 @Entity()
-export class Configuration {
+export class Configuration extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 

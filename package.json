@@ -3,12 +3,14 @@
   "version": "0.0.1",
   "description": "Awesome project developed with TypeORM.",
   "devDependencies": {
+    "@types/koa": "^2.0.48",
     "@types/node": "^8.0.29",
     "nodemon": "^1.18.9",
     "ts-node": "3.3.0",
     "typescript": "2.5.2"
   },
   "dependencies": {
+    "boom": "^7.3.0",
     "class-validator": "^0.9.1",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",

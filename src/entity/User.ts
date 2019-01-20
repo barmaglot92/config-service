@@ -3,7 +3,11 @@ import {
   PrimaryGeneratedColumn,
   Column,
   OneToMany,
-  BaseEntity
+  BaseEntity,
+  ManyToMany,
+  ManyToOne,
+  JoinColumn,
+  JoinTable
 } from "typeorm";
 import { MaxLength } from "class-validator";
 import { Group } from "./Group";
@@ -13,8 +17,9 @@ export class User extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @OneToMany(type => Group, group => group.users)
-  group: Group;
+  @ManyToMany(type => Group, group => group.users)
+  @JoinTable()
+  groups: Group[];
 
   @Column({ unique: true })
   @MaxLength(100)

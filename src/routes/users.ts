@@ -5,12 +5,14 @@ import { validate } from "class-validator";
 import * as Boom from "boom";
 import { User } from "../entity/User";
 import { boomError, internalError } from "../utils";
+import { In } from "typeorm";
 
 const router = new Router({ prefix: "/users" });
 
 router.post("/save", async ctx => {
   const user = new User();
-  Object.assign(user, ctx.request.body);
+  const { body } = ctx.request;
+  Object.assign(user, body);
 
   const errors = await validate(user);
 
@@ -18,14 +20,19 @@ router.post("/save", async ctx => {
     throw boomError(Boom.badRequest(errors));
   }
 
-  const existedGroup = await Group.find({ name: user.name });
-  if (existedGroup.length > 0) {
+  const existedUser = await User.find({ name: user.name });
+  if (existedUser.length > 0) {
     throw boomError(Boom.conflict(`User "${user.name}" already exists`));
   }
 
   try {
-    const savedUser = await user.save();
-    ctx.body = savedUser;
+    const gr = getRepository(Group);
+    const groups = await gr.find({ name: In(["test"]) });
+    Group.find{ name: In(["test"]) }
+
+    ctx.body = groups;
+    // const savedUser = await user.save();
+    // ctx.body = savedUser;
   } catch (err) {
     throw internalError(ctx, err);
   }

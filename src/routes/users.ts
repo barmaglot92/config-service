@@ -26,9 +26,7 @@ router.post("/save", async ctx => {
   }
 
   try {
-    const gr = getRepository(Group);
-    const groups = await gr.find({ name: In(["test"]) });
-    Group.find{ name: In(["test"]) }
+    const groups = await Group.find({ name: In("test") });
 
     ctx.body = groups;
     // const savedUser = await user.save();
